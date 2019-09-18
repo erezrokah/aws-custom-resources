@@ -16,7 +16,13 @@
       "type": "array",
       "items": {
         "type": "object",
-        "additionalProperties": { "type": "string" }
+        "required": ["name", "value"],
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
       }
     }
   }

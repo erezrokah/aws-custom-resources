@@ -198,10 +198,8 @@ describe('index', () => {
         Owner: 'owner',
         Repo: 'repo',
         EnvironmentVariables: [
-          { name: 'env1' },
-          { value: 'value1' },
-          { name: 'env2' },
-          { value: 'value2' },
+          { name: 'env1', value: 'value1' },
+          { name: 'env2', value: 'value2' },
         ],
       },
     };

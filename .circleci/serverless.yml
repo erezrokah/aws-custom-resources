@@ -1,0 +1,19 @@
+service: aws-custom-resources
+
+provider:
+  name: aws
+
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+
+resources:
+  Resources:
+    CircleCI:
+      Type: 'Custom::CircleCI'
+      Version: '1.0'
+      Properties:
+        ServiceToken:
+          Fn::ImportValue: 'circleci-custom-resource:${self:provider.stage}:ServiceToken'
+        ApiToken: ${env:CIRCLECI_API_TOKEN}
+        Owner: ${env:CIRCLECI_OWNER}
+        Repo: ${env:CIRCLECI_REPO}
