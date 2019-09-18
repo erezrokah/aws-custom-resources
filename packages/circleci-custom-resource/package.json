@@ -1,0 +1,30 @@
+{
+  "name": "circle-ci-custom-resource",
+  "version": "0.0.1",
+  "description": "Circle CI Custom Resource",
+  "scripts": {
+    "lint": "eslint --cache --ext .js,.ts .",
+    "test": "jest --verbose",
+    "test:watch": "jest --watch",
+    "test:ci": "TZ=GMT JEST_JUNIT_OUTPUT_DIR=../../reports/junit/ JEST_JUNIT_OUTPUT_NAME=${npm_package_name}-test-results.xml jest --runInBand --ci",
+    "coverage": "yarn test --coverage",
+    "deploy": "serverless deploy --stage ${STAGE:-dev} --region ${REGION:-us-east-1}",
+    "package": "serverless package --stage ${STAGE:-dev} --region ${REGION:-us-east-1}",
+    "remove": "serverless remove --stage ${STAGE:-dev} --region ${REGION:-us-east-1}",
+    "prettier": "prettier --write src/**/*.ts",
+    "prettier:ci": "prettier --list-different src/**/*.ts"
+  },
+  "author": "Erez Rokah (erez@erezro.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.31",
+    "serverless-pseudo-parameters": "^2.4.0",
+    "serverless-webpack": "^5.3.1",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.528.0",
+    "axios": "^0.19.0",
+    "cfn-lambda": "^4.0.0"
+  }
+}

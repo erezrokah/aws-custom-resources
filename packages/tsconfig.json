@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "sourceMap": false,
+    "lib": ["esnext", "dom"],
+    "module": "commonjs",
+    "target": "es2017",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "strict": true,
+    "noUnusedLocals": false
+  },
+  "exclude": ["node_modules", "**/*.test.ts"]
+}

@@ -1,0 +1,15 @@
+# package directories
+node_modules
+
+coverage
+
+.serverless
+.webpack
+
+yarn-error.log
+
+reports
+
+junit.xml
+
+.eslintcache

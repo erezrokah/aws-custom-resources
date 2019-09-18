@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": ["ApiToken", "Owner", "Repo"],
+  "properties": {
+    "ApiToken": {
+      "type": "string"
+    },
+    "Owner": {
+      "type": "string"
+    },
+    "Repo": {
+      "type": "string"
+    },
+    "EnvironmentVariables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": { "type": "string" }
+      }
+    }
+  }
+}
