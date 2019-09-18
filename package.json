@@ -30,7 +30,9 @@
     "remove": "lerna run remove --parallel",
     "lint": "lerna run lint --parallel",
     "prettier": "lerna run prettier --parallel",
-    "prettier:ci": "lerna run prettier:ci --parallel"
+    "prettier:ci": "lerna run prettier:ci --parallel",
+    "circleci:setup": "serverless deploy --stage ${STAGE:-dev} --region ${REGION:-us-east-1} --config .circleci/serverless.yml",
+    "circleci:remove": "serverless remove --stage ${STAGE:-dev} --region ${REGION:-us-east-1} --config .circleci/serverless.yml"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",

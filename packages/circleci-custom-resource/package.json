@@ -18,6 +18,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/aws-lambda": "^8.10.31",
+    "copy-webpack-plugin": "^5.0.4",
     "serverless-pseudo-parameters": "^2.4.0",
     "serverless-webpack": "^5.3.1",
     "webpack-node-externals": "^1.7.2"

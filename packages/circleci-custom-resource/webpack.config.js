@@ -2,6 +2,7 @@
 
 const path = require('path');
 const slsw = require('serverless-webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: slsw.lib.entries,
@@ -14,6 +15,9 @@ module.exports = {
   optimization: {
     // We no not want to minimize our code.
     minimize: false,
+  },
+  node: {
+    __dirname: true,
   },
   devtool: 'nosources-source-map',
   resolve: {
@@ -41,4 +45,7 @@ module.exports = {
     filename: '[name].js',
     sourceMapFilename: '[file].map',
   },
+  plugins: [
+    new CopyPlugin([{ from: 'src/schema.json', to: 'src/schema.json' }]),
+  ],
 };
