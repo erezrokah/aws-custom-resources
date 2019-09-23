@@ -35,6 +35,11 @@
     "circleci:setup": "serverless deploy --stage ${STAGE:-dev} --region ${REGION:-us-east-1} --config .circleci/serverless.yml",
     "circleci:remove": "serverless remove --stage ${STAGE:-dev} --region ${REGION:-us-east-1} --config .circleci/serverless.yml"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
