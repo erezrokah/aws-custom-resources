@@ -8,6 +8,7 @@
     "test:watch": "jest --watch",
     "test:ci": "TZ=GMT JEST_JUNIT_OUTPUT_DIR=../../reports/junit/ JEST_JUNIT_OUTPUT_NAME=${npm_package_name}-test-results.xml jest --runInBand --ci",
     "coverage": "yarn test --coverage",
+    "coverage:ci": "TZ=GMT jest --coverage --coverageReporters=text-lcov | coveralls",
     "deploy": "serverless deploy --stage ${STAGE:-dev} --region ${REGION:-us-east-1}",
     "package": "serverless package --stage ${STAGE:-dev} --region ${REGION:-us-east-1}",
     "remove": "serverless remove --stage ${STAGE:-dev} --region ${REGION:-us-east-1}",
