@@ -12,6 +12,10 @@ resources:
       Type: String
       Default: ${env:CIRCLECI_API_TOKEN}
       NoEcho: true
+    CoverallsRepoTokenParameter:
+      Type: String
+      Default: ${env:COVERALLS_REPO_TOKEN}
+      NoEcho: true
 
   Resources:
     CircleCI:
@@ -23,3 +27,8 @@ resources:
         ApiToken: { Ref: ApiTokenParameter }
         Owner: ${env:CIRCLECI_OWNER}
         Repo: ${env:CIRCLECI_REPO}
+        EnvironmentVariables:
+          - name: COVERALLS_SERVICE_NAME
+            value: CircleCI
+          - name: COVERALLS_REPO_TOKEN
+            value: { Ref: CoverallsRepoTokenParameter }
