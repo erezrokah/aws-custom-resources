@@ -2,12 +2,7 @@ declare module 'cfn-lambda' {
   import { CloudFormationCustomResourceHandler } from 'aws-lambda';
 
   namespace cfnLambda {
-    export type CfnRequestParams = {
-      ApiToken: string,
-      Repo: string,
-      Owner: string,
-      EnvironmentVariables?: Array<{name:string,value:string}>
-    };
+    export type CfnRequestParams = {};
 
     export interface AsyncHandlerResult {
       PhysicalResourceId: string;
@@ -34,6 +29,7 @@ declare module 'cfn-lambda' {
       AsyncUpdate: AsyncUpdateHandler;
       AsyncDelete: AsyncDeleteHandler;
       SchemaPath: string[];
+      NoEcho?: boolean;
     }
   }
 

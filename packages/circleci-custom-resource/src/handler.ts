@@ -1,6 +1,7 @@
 import cfnLambda = require('cfn-lambda');
 import { getIamUserName, createIamUser, deleteIamUser } from './iam';
 import { follow, setEnvs, updateProjectSettings, unfollow } from './circleci';
+import { CircleCiRequestParams } from './types';
 
 const createHandler: cfnLambda.AsyncCreateHandler = async cfnRequestParams => {
   try {
@@ -9,7 +10,7 @@ const createHandler: cfnLambda.AsyncCreateHandler = async cfnRequestParams => {
       Owner: owner,
       Repo: repo,
       EnvironmentVariables: envs = [],
-    } = cfnRequestParams;
+    } = cfnRequestParams as CircleCiRequestParams;
     const iamUser = getIamUserName(repo as string);
     const { accessKeyId, secretAccessKey } = await createIamUser(iamUser);
 
@@ -44,7 +45,11 @@ const deleteHandler: cfnLambda.AsyncDeleteHandler = async (
   cfnRequestParams,
 ) => {
   try {
-    const { ApiToken: token, Owner: owner, Repo: repo } = cfnRequestParams;
+    const {
+      ApiToken: token,
+      Owner: owner,
+      Repo: repo,
+    } = cfnRequestParams as CircleCiRequestParams;
     await unfollow(token, owner, repo);
 
     const iamUser = getIamUserName(repo);

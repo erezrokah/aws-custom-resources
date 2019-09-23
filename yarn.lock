@@ -2422,10 +2422,9 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cfn-lambda@^4.0.0:
+"cfn-lambda@git://github.com/erezrokah/cfn-lambda.git#development":
   version "4.0.0"
-  resolved "https://registry.yarnpkg.com/cfn-lambda/-/cfn-lambda-4.0.0.tgz#4dc80863cbf707135cc5fcc7d45c70ebab1c2288"
-  integrity sha512-eM8YjA5MHlFFjYd+GdmZF3CcsXJ7qUDKBr99r0qpaHp2fTAH8nVlSDWhFPwfjQJpAyPAlrKMbn63ofYj8SfCrA==
+  resolved "git://github.com/erezrokah/cfn-lambda.git#d082956ffc6be458bd19d68de725c2d2351b4e10"
   dependencies:
     archiver "^3.0.0"
     async "^1.5.2"

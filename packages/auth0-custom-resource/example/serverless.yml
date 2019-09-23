@@ -1,0 +1,32 @@
+service: auth0-custom-resource-example
+
+provider:
+  name: aws
+
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+
+resources:
+  Parameters:
+    ManagementClientSecretParameter:
+      Type: String
+      Default: ${env:AUTH0_MANAGEMENT_CLIENT_SECRET}
+      NoEcho: true
+
+  Resources:
+    Auth0:
+      Type: 'Custom::Auth0'
+      Version: '1.0'
+      Properties:
+        ServiceToken:
+          Fn::ImportValue: 'auth0-custom-resource:${self:provider.stage}:ServiceToken'
+        Domain: ${env:AUTH0_DOMAIN}
+        ManagementClientId: ${env:AUTH0_MANAGEMENT_CLIENT_ID}
+        ManagementClientSecret: { Ref: ManagementClientSecretParameter }
+        Body:
+          name: test-auth0-app-custom-resource-${self:provider.stage}
+  Outputs:
+    ClientId:
+      Value: !GetAtt Auth0.ClientId
+    ClientSecret:
+      Value: !GetAtt Auth0.ClientSecret
