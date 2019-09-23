@@ -7,6 +7,12 @@ provider:
   region: ${opt:region, 'us-east-1'}
 
 resources:
+  Parameters:
+    ApiTokenParameter:
+      Type: String
+      Default: ${env:CIRCLECI_API_TOKEN}
+      NoEcho: true
+
   Resources:
     CircleCI:
       Type: 'Custom::CircleCI'
@@ -14,6 +20,6 @@ resources:
       Properties:
         ServiceToken:
           Fn::ImportValue: 'circleci-custom-resource:${self:provider.stage}:ServiceToken'
-        ApiToken: ${env:CIRCLECI_API_TOKEN}
+        ApiToken: { Ref: ApiTokenParameter }
         Owner: ${env:CIRCLECI_OWNER}
         Repo: ${env:CIRCLECI_REPO}

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": ["Domain", "ManagementClientId", "ManagementClientSecret", "Body"],
+  "properties": {
+    "Domain": {
+      "type": "string"
+    },
+    "ManagementClientId": {
+      "type": "string"
+    },
+    "ManagementClientSecret": {
+      "type": "string"
+    },
+    "Body": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -24,7 +24,7 @@ jest.mock('https', () => {
 jest.mock('./iam');
 jest.mock('./circleci');
 
-describe('index', () => {
+describe('handler', () => {
   const commonEvent = {
     RequestType: 'Create',
     ServiceToken: 'ServiceToken',
@@ -96,6 +96,7 @@ describe('index', () => {
       Reason: expect.any(String),
       RequestId: 'RequestId',
       Status: 'FAILED',
+      NoEcho: false,
     });
     expect(reason[0][1]).toEqual(['message ==>', 'requires property "Owner"']);
     expect(reason[1][1]).toEqual(['message ==>', 'requires property "Repo"']);
@@ -139,6 +140,7 @@ describe('index', () => {
       RequestId: 'RequestId',
       Status: 'SUCCESS',
       Data: {},
+      NoEcho: false,
     });
 
     expect(getIamUserName).toHaveBeenCalledTimes(1);
@@ -247,6 +249,7 @@ describe('index', () => {
       StackId: 'StackId',
       RequestId: 'RequestId',
       Status: 'FAILED',
+      NoEcho: false,
     });
   });
 
@@ -305,6 +308,7 @@ describe('index', () => {
       RequestId: 'RequestId',
       Status: 'SUCCESS',
       Data: {},
+      NoEcho: false,
     });
 
     expect(unfollow).toHaveBeenCalledTimes(1);
@@ -360,6 +364,7 @@ describe('index', () => {
       StackId: 'StackId',
       RequestId: 'RequestId',
       Status: 'FAILED',
+      NoEcho: false,
     });
   });
 });

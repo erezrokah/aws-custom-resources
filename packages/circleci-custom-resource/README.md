@@ -2,15 +2,23 @@
 
 ## Usage
 
-first deploy the resource
+Create a CircleCI Api Token [here](https://circleci.com/account/api).
+
+Then deploy the resource:
 
 ```bash
 STAGE=prod REGION=us-east-1 yarn deploy
 ```
 
-Then in your CloudFormation template:
+Finally in your CloudFormation template:
 
 ```yaml
+Parameters:
+  ApiTokenParameter:
+    Type: String
+    Default: ${env:CIRCLECI_API_TOKEN}
+    NoEcho: true
+
 Resources:
   CircleCI:
     Type: 'Custom::CircleCI'
@@ -18,9 +26,9 @@ Resources:
     Properties:
       ServiceToken:
         Fn::ImportValue: 'circleci-custom-resource:prod:ServiceToken'
-      ApiToken: ApiTokenValue
-      Owner: RepoOwnerValue
-      Repo: RepoNameValue
+      ApiToken: { Ref: ApiTokenParameter }
+      Owner: ${env:CIRCLECI_OWNER}
+      Repo: ${env:CIRCLECI_REPO}
       # Optional Environment Variables
       EnvironmentVariables:
         - name: name

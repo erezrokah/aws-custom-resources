@@ -1,5 +1,5 @@
 {
-  "name": "circle-ci-custom-resource",
+  "name": "auth0-custom-resource",
   "version": "0.0.1",
   "description": "Circle CI Custom Resource",
   "scripts": {
@@ -19,12 +19,10 @@
   "devDependencies": {
     "@types/aws-lambda": "^8.10.31",
     "copy-webpack-plugin": "^5.0.4",
-    "serverless-pseudo-parameters": "^2.4.0",
     "serverless-webpack": "^5.3.1",
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "aws-sdk": "^2.528.0",
     "axios": "^0.19.0",
     "cfn-lambda": "git://github.com/erezrokah/cfn-lambda.git#development"
   }
