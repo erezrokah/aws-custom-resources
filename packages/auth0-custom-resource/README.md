@@ -2,7 +2,7 @@
 
 ## Usage
 
-Follow the steps [here] to register a Machine-to-Machine Application and get your `ManagementClientId` and `ManagementClientSecret`.
+Follow the steps [here](https://auth0.com/docs/api/management/v2/create-m2m-app) to register a Machine-to-Machine Application and get your `ManagementClientId` and `ManagementClientSecret`.
 
 You application should have the `create:clients,update:clients,delete:clients` permissions.
 
