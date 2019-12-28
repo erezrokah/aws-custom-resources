@@ -46,7 +46,7 @@ jest.mock('aws-sdk/clients/iam', () => {
   return jest.fn(() => IAM);
 });
 
-jest.spyOn(console, 'log').mockImplementation(() => {});
+jest.spyOn(console, 'log').mockImplementation(() => undefined);
 
 describe('iam', () => {
   const iam = new IAM();
