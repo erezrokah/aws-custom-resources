@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { follow, setEnvs, updateProjectSettings, unfollow } from './circleci';
 
-jest.spyOn(console, 'log').mockImplementation(() => {});
-jest.spyOn(console, 'error').mockImplementation(() => {});
+jest.spyOn(console, 'log').mockImplementation(() => undefined);
+jest.spyOn(console, 'error').mockImplementation(() => undefined);
 
 jest.mock('axios', () => {
   return {
@@ -155,7 +155,9 @@ describe('circleci', () => {
     );
 
     expect(post).toHaveBeenCalledTimes(1);
-    expect(post).toHaveBeenCalledWith(
+    expect(
+      post,
+    ).toHaveBeenCalledWith(
       'https://circleci.com/api/v1.1/project/github/owner/repo/envvar?circle-token=token',
       { name: 'newName', value: 'newValue' },
     );

@@ -7,8 +7,8 @@ import {
   Context,
 } from 'aws-lambda';
 
-jest.spyOn(console, 'log').mockImplementation(() => {});
-jest.spyOn(console, 'error').mockImplementation(() => {});
+jest.spyOn(console, 'log').mockImplementation(() => undefined);
+jest.spyOn(console, 'error').mockImplementation(() => undefined);
 
 jest.mock('https', () => {
   const request = {
