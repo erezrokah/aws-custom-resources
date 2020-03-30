@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/adieuadieu/erezrokah/aws-custom-resources",
   "engines": {
-    "node": ">= 8"
+    "node": ">= v8.17.0"
   },
   "workspaces": {
     "packages": [
