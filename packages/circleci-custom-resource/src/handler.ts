@@ -3,7 +3,9 @@ import { getIamUserName, createIamUser, deleteIamUser } from './iam';
 import { follow, setEnvs, updateProjectSettings, unfollow } from './circleci';
 import { CircleCiRequestParams } from './types';
 
-const createHandler: cfnLambda.AsyncCreateHandler = async cfnRequestParams => {
+const createHandler: cfnLambda.AsyncCreateHandler = async (
+  cfnRequestParams,
+) => {
   try {
     const {
       ApiToken: token,
