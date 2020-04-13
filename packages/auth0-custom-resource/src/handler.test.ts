@@ -118,7 +118,7 @@ describe('handler', () => {
     const result = { client_id: 'client_id', client_secret: 'client_id' };
     createClient.mockReturnValue(Promise.resolve(result));
 
-    const writePromise = new Promise(resolve => {
+    const writePromise = new Promise((resolve) => {
       request.write.mockImplementation(() => {
         resolve();
         return Promise.resolve();
@@ -172,7 +172,7 @@ describe('handler', () => {
     const error = new Error('some error');
     getBearerToken.mockReturnValue(Promise.reject(error));
 
-    const writePromise = new Promise(resolve => {
+    const writePromise = new Promise((resolve) => {
       request.write.mockImplementation(() => {
         resolve();
         return Promise.resolve();
@@ -220,7 +220,7 @@ describe('handler', () => {
     const result = { client_id: 'client_id', client_secret: 'client_id' };
     updateClient.mockReturnValue(Promise.resolve(result));
 
-    const writePromise = new Promise(resolve => {
+    const writePromise = new Promise((resolve) => {
       request.write.mockImplementation(() => {
         resolve();
         return Promise.resolve();
@@ -277,7 +277,7 @@ describe('handler', () => {
     const error = new Error('some error');
     getBearerToken.mockReturnValue(Promise.reject(error));
 
-    const writePromise = new Promise(resolve => {
+    const writePromise = new Promise((resolve) => {
       request.write.mockImplementation(() => {
         resolve();
         return Promise.resolve();
@@ -324,7 +324,7 @@ describe('handler', () => {
     const result = { client_id: 'client_id', client_secret: 'client_id' };
     deleteClient.mockReturnValue(Promise.resolve(result));
 
-    const writePromise = new Promise(resolve => {
+    const writePromise = new Promise((resolve) => {
       request.write.mockImplementation(() => {
         resolve();
         return Promise.resolve();
@@ -379,7 +379,7 @@ describe('handler', () => {
     const error = new Error('some error');
     getBearerToken.mockReturnValue(Promise.reject(error));
 
-    const writePromise = new Promise(resolve => {
+    const writePromise = new Promise((resolve) => {
       request.write.mockImplementation(() => {
         resolve();
         return Promise.resolve();

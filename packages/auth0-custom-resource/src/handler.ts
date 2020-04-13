@@ -26,7 +26,9 @@ const createDataObject = (result: Result) => {
   return { ClientId, ClientSecret };
 };
 
-const createHandler: cfnLambda.AsyncCreateHandler = async cfnRequestParams => {
+const createHandler: cfnLambda.AsyncCreateHandler = async (
+  cfnRequestParams,
+) => {
   try {
     const {
       Domain: domain,
