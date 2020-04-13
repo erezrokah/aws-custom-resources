@@ -54,7 +54,7 @@
     "jest": "^25.0.0",
     "jest-junit": "^10.0.0",
     "lerna": "^3.20.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.0",
     "ts-jest": "^25.0.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.4",
