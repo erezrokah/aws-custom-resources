@@ -1600,9 +1600,9 @@
     "@types/istanbul-lib-report" "*"
 
 "@types/jest@^25.0.0":
-  version "25.2.2"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-25.2.2.tgz#6a752e7a00f69c3e790ea00c345029d5cefa92bf"
-  integrity sha512-aRctFbG8Pb7DSLzUt/fEtL3q/GKb9mretFuYhRub2J0q6NhzBYbx9HTQzHrWgBNIxYOlxGNVe6Z54cpbUt+Few==
+  version "25.2.3"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-25.2.3.tgz#33d27e4c4716caae4eced355097a47ad363fdcaf"
+  integrity sha512-JXc1nK/tXHiDhV55dvfzqtmP4S3sy3T3ouV2tkViZgxY/zeUkcpQcQPGRlgF4KmWzWW5oiWYSZwtCB+2RsE4Fw==
   dependencies:
     jest-diff "^25.2.1"
     pretty-format "^25.2.1"
@@ -2803,7 +2803,6 @@ caseless@~0.12.0:
 
 "cfn-lambda@git://github.com/erezrokah/cfn-lambda.git#development":
   version "4.0.0"
-  uid d082956ffc6be458bd19d68de725c2d2351b4e10
   resolved "git://github.com/erezrokah/cfn-lambda.git#d082956ffc6be458bd19d68de725c2d2351b4e10"
   dependencies:
     archiver "^3.0.0"
@@ -4387,7 +4386,6 @@ fsevents@^1.2.7:
   dependencies:
     bindings "^1.5.0"
     nan "^2.12.1"
-    node-pre-gyp "*"
 
 fsevents@^2.1.2:
   version "2.1.3"
