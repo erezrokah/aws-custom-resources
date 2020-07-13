@@ -2,7 +2,11 @@ import axios from 'axios';
 
 const api = 'https://circleci.com/api/v1.1/project/github';
 
-export const follow = async (token: string, owner: string, repo: string) => {
+export const follow = async (
+  token: string,
+  owner: string,
+  repo: string,
+): Promise<void> => {
   console.log(`Following repo ${repo} under owner ${owner}`);
   const result = await axios.post(
     `${api}/${owner}/${repo}/follow?circle-token=${token}`,
@@ -22,7 +26,7 @@ export const setEnvs = async (
   owner: string,
   repo: string,
   envs: Array<{ name: string; value: string }>,
-) => {
+): Promise<void> => {
   console.log(`Deleting existing environment vars for project ${repo}`);
   const { data: existing } = await axios.get(
     `${api}/${owner}/${repo}/envvar?circle-token=${token}`,
@@ -53,7 +57,7 @@ export const updateProjectSettings = async (
   token: string,
   owner: string,
   repo: string,
-) => {
+): Promise<void> => {
   console.log(`Updating settings for project ${repo}`);
   await axios.put(`${api}/${owner}/${repo}/settings?circle-token=${token}`, {
     feature_flags: {
@@ -65,7 +69,11 @@ export const updateProjectSettings = async (
   console.log(`Done updating settings for project ${repo}`);
 };
 
-export const unfollow = async (token: string, owner: string, repo: string) => {
+export const unfollow = async (
+  token: string,
+  owner: string,
+  repo: string,
+): Promise<void> => {
   console.log(`Unfollowing repo ${repo} under owner ${owner}`);
   const result = await axios.post(
     `${api}/${owner}/${repo}/unfollow?circle-token=${token}`,
