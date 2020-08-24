@@ -24,7 +24,7 @@
     "webpack-node-externals": "^2.0.0"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.20.0",
     "cfn-lambda": "git://github.com/erezrokah/cfn-lambda.git#development"
   }
 }
