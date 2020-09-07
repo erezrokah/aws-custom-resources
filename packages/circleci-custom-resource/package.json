@@ -18,7 +18,7 @@
   "author": "Erez Rokah (erez@erezro.com)",
   "license": "MIT",
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.61",
+    "@types/aws-lambda": "^8.10.62",
     "copy-webpack-plugin": "^6.0.0",
     "serverless-pseudo-parameters": "^2.5.0",
     "serverless-webpack": "^5.3.1",
