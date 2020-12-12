@@ -120,7 +120,7 @@ describe('handler', () => {
     setEnvs.mockReturnValue(Promise.resolve());
     updateProjectSettings.mockReturnValue(Promise.resolve());
 
-    const writePromise = new Promise((resolve) => {
+    const writePromise = new Promise<void>((resolve) => {
       request.write.mockImplementation(() => {
         resolve();
         return Promise.resolve();
@@ -227,7 +227,7 @@ describe('handler', () => {
     const error = new Error('some error');
     createIamUser.mockReturnValue(Promise.reject(error));
 
-    const writePromise = new Promise((resolve) => {
+    const writePromise = new Promise<void>((resolve) => {
       request.write.mockImplementation(() => {
         resolve();
         return Promise.resolve();
@@ -288,7 +288,7 @@ describe('handler', () => {
     const iamUser = 'iamUser';
     getIamUserName.mockReturnValue(iamUser);
 
-    const writePromise = new Promise((resolve) => {
+    const writePromise = new Promise<void>((resolve) => {
       request.write.mockImplementation(() => {
         resolve();
         return Promise.resolve();
@@ -342,7 +342,7 @@ describe('handler', () => {
     const error = new Error('some error');
     unfollow.mockReturnValue(Promise.reject(error));
 
-    const writePromise = new Promise((resolve) => {
+    const writePromise = new Promise<void>((resolve) => {
       request.write.mockImplementation(() => {
         resolve();
         return Promise.resolve();
