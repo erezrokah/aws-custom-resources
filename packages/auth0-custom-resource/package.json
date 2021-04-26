@@ -21,7 +21,7 @@
     "@types/aws-lambda": "^8.10.62",
     "copy-webpack-plugin": "^8.0.0",
     "serverless-webpack": "^5.3.1",
-    "webpack-node-externals": "^2.0.0"
+    "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
     "axios": "^0.21.0",
