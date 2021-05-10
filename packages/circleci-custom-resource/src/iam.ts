@@ -52,10 +52,8 @@ export const createIamUser = async (
   const { AccessKey } = await iam
     .createAccessKey({ UserName: userName })
     .promise();
-  const {
-    AccessKeyId: accessKeyId,
-    SecretAccessKey: secretAccessKey,
-  } = AccessKey;
+  const { AccessKeyId: accessKeyId, SecretAccessKey: secretAccessKey } =
+    AccessKey;
   console.log(`Done creating access key for user ${userName}`);
   return { accessKeyId, secretAccessKey };
 };
