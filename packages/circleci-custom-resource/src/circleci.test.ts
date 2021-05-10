@@ -155,9 +155,7 @@ describe('circleci', () => {
     );
 
     expect(post).toHaveBeenCalledTimes(1);
-    expect(
-      post,
-    ).toHaveBeenCalledWith(
+    expect(post).toHaveBeenCalledWith(
       'https://circleci.com/api/v1.1/project/github/owner/repo/envvar?circle-token=token',
       { name: 'newName', value: 'newValue' },
     );

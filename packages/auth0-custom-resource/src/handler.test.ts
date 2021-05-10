@@ -39,10 +39,10 @@ describe('handler', () => {
   const done = jest.fn();
   const callback = jest.fn();
 
-  const context = ({
+  const context = {
     invokedFunctionArn: 'arn:aws:lambda:us-east-1:123456:function:create',
     done,
-  } as unknown) as Context;
+  } as unknown as Context;
 
   const request = require('https').request();
 
