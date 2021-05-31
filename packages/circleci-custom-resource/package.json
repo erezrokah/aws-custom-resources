@@ -22,7 +22,7 @@
     "copy-webpack-plugin": "^8.0.0",
     "serverless-pseudo-parameters": "^2.5.0",
     "serverless-webpack": "^5.3.1",
-    "webpack-node-externals": "^2.0.0"
+    "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
     "aws-sdk": "^2.596.0",
