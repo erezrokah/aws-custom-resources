@@ -1,4 +1,5 @@
 import IAM = require('aws-sdk/clients/iam');
+import type { AWSError } from 'aws-sdk/lib/error';
 
 const policyArn = 'arn:aws:iam::aws:policy/AdministratorAccess';
 
@@ -30,7 +31,8 @@ export const createIamUser = async (
     console.log(`Creating IAM user ${userName}`);
     await iam.createUser({ UserName: userName }).promise();
     console.log(`Done creating IAM user ${userName}`);
-  } catch (e) {
+  } catch (error) {
+    const e = error as AWSError;
     if (e.code === 'EntityAlreadyExists') {
       console.log(`User ${userName} already exists`);
       await deleteAllKeys(userName);
@@ -76,7 +78,8 @@ export const deleteIamUser = async (userName: string): Promise<void> => {
     console.log(`Deleting IAM user ${userName}`);
     await iam.deleteUser({ UserName: userName }).promise();
     console.log(`Done deleting IAM user ${userName}`);
-  } catch (e) {
+  } catch (error) {
+    const e = error as AWSError;
     if (e.code === 'NoSuchEntity') {
       console.log(`Policy ${policyArn} doesn't exists`);
     } else {
