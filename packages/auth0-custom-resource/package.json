@@ -1,6 +1,6 @@
 {
   "name": "auth0-custom-resource",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Circle CI Custom Resource",
   "scripts": {
     "lint": "eslint --cache --ext .js,.ts .",
