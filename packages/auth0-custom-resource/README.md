@@ -9,7 +9,7 @@ You application should have the `create:clients,update:clients,delete:clients` p
 Then deploy the resource:
 
 ```bash
-STAGE=prod REGION=us-east-1 yarn deploy
+STAGE=prod REGION=us-east-1 npm run deploy
 ```
 
 Finally in your CloudFormation template:
@@ -28,8 +28,8 @@ Resources:
     Properties:
       ServiceToken:
         Fn::ImportValue: 'auth0-custom-resource:prod:ServiceToken'
-      Domain: ${env:AUTH0_DOMAIN}
-      ManagementClientId: ${env:AUTH0_MANAGEMENT_CLIENT_ID}
+      Domain: <auth0_domain>
+      ManagementClientId: <auth0_management_client_id>
       ManagementClientSecret: { Ref: ManagementClientSecretParameter }
       Body:
         # name is required. You can pass any a additional parameters specified here https://auth0.com/docs/api/management/v2#!/Clients/post_clients

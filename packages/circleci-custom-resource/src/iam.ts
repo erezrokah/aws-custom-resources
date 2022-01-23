@@ -1,9 +1,8 @@
 import IAM = require('aws-sdk/clients/iam');
 import type { AWSError } from 'aws-sdk/lib/error';
 
-const policyArn = 'arn:aws:iam::aws:policy/AdministratorAccess';
-
-export const getIamUserName = (repo: string): string => `circleci-${repo}`;
+export const getIamUserName = (owner: string, repo: string): string =>
+  `circleci-${owner}-${repo}`;
 
 export const deleteAllKeys = async (userName: string): Promise<void> => {
   console.log(`Deleting all access keys for user ${userName}`);
@@ -24,6 +23,7 @@ export const deleteAllKeys = async (userName: string): Promise<void> => {
 
 export const createIamUser = async (
   userName: string,
+  policyArn: string,
 ): Promise<{ accessKeyId: string; secretAccessKey: string }> => {
   const iam = new IAM();
 
@@ -60,7 +60,10 @@ export const createIamUser = async (
   return { accessKeyId, secretAccessKey };
 };
 
-export const deleteIamUser = async (userName: string): Promise<void> => {
+export const deleteIamUser = async (
+  userName: string,
+  policyArn: string,
+): Promise<void> => {
   const iam = new IAM();
 
   try {

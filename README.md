@@ -4,23 +4,40 @@
 [![CircleCI](https://circleci.com/gh/erezrokah/aws-custom-resources.svg?style=svg)](https://circleci.com/gh/erezrokah/aws-custom-resources)
 [![Coverage Status](https://coveralls.io/repos/github/erezrokah/aws-custom-resources/badge.svg?branch=master)](https://coveralls.io/github/erezrokah/aws-custom-resources?branch=master)
 
+## Prerequisites
+
+- [Install Node.js LTS](https://nodejs.org/en/)
+- [Set up the Serverless Framework CLI](https://www.serverless.com/framework/docs/getting-started)
+
 ## Setup
 
 ```bash
-yarn
+npm ci
 ```
 
 ## Deploy
 
 ```bash
-yarn deploy
+npm run deploy
+```
+
+## Cleanup
+
+```bash
+npm run remove
 ```
 
 ## Test
 
 ```bash
-yarn test
-yarn coverage
-yarn lint
-yarn prettier
+npm test
+npm run coverage
+npm run lint
+npm run prettier
+```
+
+## Build
+
+```bash
+npm run package
 ```

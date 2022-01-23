@@ -63,7 +63,7 @@ describe('iam', () => {
   });
 
   test('should return iam user on getIamUserName', () => {
-    expect(getIamUserName('repo')).toBe('circleci-repo');
+    expect(getIamUserName('owner', 'repo')).toBe('circleci-owner-repo');
   });
 
   test('should delete all access keys on deleteAllKeys', async () => {
@@ -107,7 +107,10 @@ describe('iam', () => {
 
     attachUserPolicyPromise.mockReturnValue(Promise.resolve());
 
-    const result = await createIamUser(username);
+    const result = await createIamUser(
+      username,
+      'arn:aws:iam::aws:policy/AdministratorAccess',
+    );
 
     expect(result).toEqual({
       accessKeyId: 'AccessKeyId',
@@ -178,7 +181,10 @@ describe('iam', () => {
   test('should create new IAM user, attach policy and create access key on createIamUser', async () => {
     const { username, AccessKey } = setupCreateUser();
 
-    const result = await createIamUser(username);
+    const result = await createIamUser(
+      username,
+      'arn:aws:iam::aws:policy/AdministratorAccess',
+    );
 
     validateCreateUser(result, username, AccessKey);
   });
@@ -195,7 +201,10 @@ describe('iam', () => {
     );
     deleteAccessKeyPromise.mockReturnValue(Promise.resolve());
 
-    const result = await createIamUser(username);
+    const result = await createIamUser(
+      username,
+      'arn:aws:iam::aws:policy/AdministratorAccess',
+    );
 
     validateCreateUser(result, username, AccessKey);
 
@@ -212,7 +221,9 @@ describe('iam', () => {
     const error = { code: 'Unknown' };
     createUserPromise.mockReturnValue(Promise.reject(error));
 
-    await expect(createIamUser(username)).rejects.toEqual(error);
+    await expect(
+      createIamUser(username, 'arn:aws:iam::aws:policy/AdministratorAccess'),
+    ).rejects.toEqual(error);
   });
 
   test('should detach policy, delete keys and user on deleteIamUser', async () => {
@@ -226,7 +237,10 @@ describe('iam', () => {
     );
     deleteAccessKeyPromise.mockReturnValue(Promise.resolve());
 
-    await deleteIamUser(username);
+    await deleteIamUser(
+      username,
+      'arn:aws:iam::aws:policy/AdministratorAccess',
+    );
 
     expect(iam.detachUserPolicy).toHaveBeenCalledTimes(1);
     expect(iam.deleteUser).toHaveBeenCalledTimes(1);
@@ -249,7 +263,10 @@ describe('iam', () => {
     const error = { code: 'NoSuchEntity' };
     detachUserPolicyPromise.mockResolvedValue(Promise.reject(error));
 
-    await deleteIamUser(username);
+    await deleteIamUser(
+      username,
+      'arn:aws:iam::aws:policy/AdministratorAccess',
+    );
 
     expect(console.log).toHaveBeenCalledWith(
       "Policy arn:aws:iam::aws:policy/AdministratorAccess doesn't exists",
@@ -261,6 +278,8 @@ describe('iam', () => {
     const error = { code: 'Unknown' };
     detachUserPolicyPromise.mockResolvedValue(Promise.reject(error));
 
-    await expect(deleteIamUser(username)).rejects.toEqual(error);
+    await expect(
+      deleteIamUser(username, 'arn:aws:iam::aws:policy/AdministratorAccess'),
+    ).rejects.toEqual(error);
   });
 });

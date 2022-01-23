@@ -144,9 +144,15 @@ describe('handler', () => {
     });
 
     expect(getIamUserName).toHaveBeenCalledTimes(1);
-    expect(getIamUserName).toHaveBeenCalledWith(event.ResourceProperties.Repo);
+    expect(getIamUserName).toHaveBeenCalledWith(
+      event.ResourceProperties.Owner,
+      event.ResourceProperties.Repo,
+    );
     expect(createIamUser).toHaveBeenCalledTimes(1);
-    expect(createIamUser).toHaveBeenCalledWith(iamUser);
+    expect(createIamUser).toHaveBeenCalledWith(
+      iamUser,
+      event.ResourceProperties.PolicyArn,
+    );
     expect(follow).toHaveBeenCalledTimes(1);
     expect(follow).toHaveBeenCalledWith(
       event.ResourceProperties.ApiToken,
@@ -184,6 +190,7 @@ describe('handler', () => {
         ApiToken: 'ApiToken',
         Owner: 'owner',
         Repo: 'repo',
+        PolicyArn: 'arn:aws:iam::aws:policy/AdministratorAccess',
       },
     };
 
@@ -199,6 +206,7 @@ describe('handler', () => {
         ApiToken: 'ApiToken',
         Owner: 'owner',
         Repo: 'repo',
+        PolicyArn: 'arn:aws:iam::aws:policy/AdministratorAccess',
         EnvironmentVariables: [
           { name: 'env1', value: 'value1' },
           { name: 'env2', value: 'value2' },
@@ -218,6 +226,7 @@ describe('handler', () => {
         ApiToken: 'ApiToken',
         Owner: 'owner',
         Repo: 'repo',
+        PolicyArn: 'arn:aws:iam::aws:policy/AdministratorAccess',
       },
     };
 
@@ -263,6 +272,7 @@ describe('handler', () => {
         ApiToken: 'ApiToken',
         Owner: 'owner',
         Repo: 'repo',
+        PolicyArn: 'arn:aws:iam::aws:policy/AdministratorAccess',
       },
       OldResourceProperties: {
         ...commonEvent.ResourceProperties,
@@ -282,6 +292,7 @@ describe('handler', () => {
         ApiToken: 'ApiToken',
         Owner: 'owner',
         Repo: 'repo',
+        PolicyArn: 'arn:aws:iam::aws:policy/AdministratorAccess',
       },
     };
 
@@ -318,9 +329,15 @@ describe('handler', () => {
       event.ResourceProperties.Repo,
     );
     expect(getIamUserName).toHaveBeenCalledTimes(1);
-    expect(getIamUserName).toHaveBeenCalledWith(event.ResourceProperties.Repo);
+    expect(getIamUserName).toHaveBeenCalledWith(
+      event.ResourceProperties.Owner,
+      event.ResourceProperties.Repo,
+    );
     expect(deleteIamUser).toHaveBeenCalledTimes(1);
-    expect(deleteIamUser).toHaveBeenCalledWith(iamUser);
+    expect(deleteIamUser).toHaveBeenCalledWith(
+      iamUser,
+      event.ResourceProperties.PolicyArn,
+    );
   });
 
   test('should log and throw error on delete resource error', async () => {
@@ -333,6 +350,7 @@ describe('handler', () => {
         ApiToken: 'ApiToken',
         Owner: 'owner',
         Repo: 'repo',
+        PolicyArn: 'arn:aws:iam::aws:policy/AdministratorAccess',
       },
     };
 

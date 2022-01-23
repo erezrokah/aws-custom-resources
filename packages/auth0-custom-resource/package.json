@@ -7,7 +7,7 @@
     "test": "jest --verbose",
     "test:watch": "jest --watch",
     "test:ci": "TZ=GMT JEST_JUNIT_OUTPUT_DIR=../../reports/junit/ JEST_JUNIT_OUTPUT_NAME=${npm_package_name}-test-results.xml jest --runInBand --ci",
-    "coverage": "yarn test --coverage",
+    "coverage": "npm run test -- --coverage",
     "coverage:ci": "TZ=GMT jest --coverage --coverageReporters=text-lcov | coveralls",
     "deploy": "serverless deploy --stage ${STAGE:-dev} --region ${REGION:-us-east-1}",
     "package": "serverless package --stage ${STAGE:-dev} --region ${REGION:-us-east-1}",
@@ -18,13 +18,13 @@
   "author": "Erez Rokah (erez@erezro.com)",
   "license": "MIT",
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.62",
+    "@types/aws-lambda": "^8.10.91",
     "copy-webpack-plugin": "^10.0.0",
-    "serverless-webpack": "^5.3.1",
+    "serverless-webpack": "^5.6.0",
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^0.25.0",
     "cfn-lambda": "git://github.com/erezrokah/cfn-lambda.git#development"
   }
 }

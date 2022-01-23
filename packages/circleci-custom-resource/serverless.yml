@@ -2,11 +2,10 @@ service: circleci-custom-resource
 
 plugins:
   - serverless-webpack
-  - serverless-pseudo-parameters
 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs14.x
   tracing:
     lambda: true
 
@@ -34,12 +33,12 @@ provider:
         - 'iam:CreateAccessKey'
         - 'iam:DeleteAccessKey'
 
-      Resource: 'arn:aws:iam::#{AWS::AccountId}:*'
+      Resource: 'arn:aws:iam::${aws:accountId}:*'
 
 custom:
   webpack:
     webpackConfig: webpack.config.js
-    packager: 'yarn'
+    packager: 'npm'
 
 package:
   individually: true
