@@ -1,0 +1,6 @@
+{
+  "packages": {
+    "auth0-custom-resource": {},
+    "circleci-custom-resource": {}
+  }
+}
