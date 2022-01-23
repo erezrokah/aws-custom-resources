@@ -13,7 +13,7 @@ module.exports = {
     hints: false,
   },
   optimization: {
-    // We no not want to minimize our code.
+    // We do not want to minimize our code, as it's harder to debug in AWS Lambda
     minimize: false,
   },
   node: {
@@ -46,6 +46,8 @@ module.exports = {
     sourceMapFilename: '[file].map',
   },
   plugins: [
-    new CopyPlugin([{ from: 'src/schema.json', to: 'src/schema.json' }]),
+    new CopyPlugin({
+      patterns: [{ from: 'src/schema.json', to: 'src/schema.json' }],
+    }),
   ],
 };

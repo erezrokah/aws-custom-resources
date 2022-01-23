@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "sourceMap": false,
-    "lib": ["esnext", "dom"],
+    "lib": ["ES2020"],
     "module": "commonjs",
-    "target": "es2017",
+    "target": "ES2020",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "strict": true,

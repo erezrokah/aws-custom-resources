@@ -16,11 +16,9 @@
   "engines": {
     "node": ">=12.0.0"
   },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "test": "lerna run test --parallel",
     "test:ci": "lerna run test:ci --concurrency 1",
@@ -30,14 +28,14 @@
     "package": "lerna run package --parallel",
     "remove": "lerna run remove --parallel",
     "lint": "lerna run lint --parallel",
-    "prettier": "lerna run prettier --parallel",
-    "prettier:ci": "lerna run prettier:ci --parallel",
+    "format": "lerna run prettier --parallel",
+    "format:ci": "lerna run prettier:ci --parallel",
     "circleci:setup": "serverless deploy --stage ${STAGE:-dev} --region ${REGION:-us-east-1} --config .circleci/serverless.yml",
     "circleci:remove": "serverless remove --stage ${STAGE:-dev} --region ${REGION:-us-east-1} --config .circleci/serverless.yml",
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.0.0",
+    "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
     "@types/jest": "^27.0.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
@@ -49,11 +47,11 @@
     "husky": "^7.0.0",
     "jest": "^27.0.0",
     "jest-junit": "^13.0.0",
-    "lerna": "^3.20.0",
+    "lerna": "^4.0.0",
     "prettier": "^2.0.0",
     "ts-jest": "^27.0.0",
     "ts-loader": "^9.0.0",
     "typescript": "^4.0.0",
-    "webpack": "^5.0.0"
+    "webpack": "^5.67.0"
   }
 }

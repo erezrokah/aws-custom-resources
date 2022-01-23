@@ -7,7 +7,7 @@ Create a CircleCI Api Token [here](https://circleci.com/account/api).
 Then deploy the resource:
 
 ```bash
-STAGE=prod REGION=us-east-1 yarn deploy
+STAGE=prod REGION=us-east-1 npm run deploy
 ```
 
 Finally in your CloudFormation template:
@@ -27,8 +27,8 @@ Resources:
       ServiceToken:
         Fn::ImportValue: 'circleci-custom-resource:prod:ServiceToken'
       ApiToken: { Ref: ApiTokenParameter }
-      Owner: ${env:CIRCLECI_OWNER}
-      Repo: ${env:CIRCLECI_REPO}
+      Owner: <repo-owner>
+      Repo: <repo-name>
       # Optional Environment Variables
       EnvironmentVariables:
         - name: name

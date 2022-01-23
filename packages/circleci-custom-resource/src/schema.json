@@ -12,6 +12,9 @@
     "Repo": {
       "type": "string"
     },
+    "PolicyArn": {
+      "type": "string"
+    },
     "EnvironmentVariables": {
       "type": "array",
       "items": {
