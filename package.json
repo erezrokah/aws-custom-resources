@@ -33,12 +33,8 @@
     "prettier": "lerna run prettier --parallel",
     "prettier:ci": "lerna run prettier:ci --parallel",
     "circleci:setup": "serverless deploy --stage ${STAGE:-dev} --region ${REGION:-us-east-1} --config .circleci/serverless.yml",
-    "circleci:remove": "serverless remove --stage ${STAGE:-dev} --region ${REGION:-us-east-1} --config .circleci/serverless.yml"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
+    "circleci:remove": "serverless remove --stage ${STAGE:-dev} --region ${REGION:-us-east-1} --config .circleci/serverless.yml",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.0.0",
