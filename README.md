@@ -33,7 +33,7 @@ npm run remove
 npm test
 npm run coverage
 npm run lint
-npm run prettier
+npm run format
 ```
 
 ## Build
