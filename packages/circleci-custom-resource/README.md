@@ -30,7 +30,7 @@ Resources:
       Owner: <repo-owner>
       Repo: <repo-name>
       # Optional, if the CircleCI project needs access to AWS resources adding a policy
-      # will configure AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as nnvironment variables
+      # will configure AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as environment variables
       PolicyArn: <policy-arn>
       # Optional Environment Variables
       EnvironmentVariables:
