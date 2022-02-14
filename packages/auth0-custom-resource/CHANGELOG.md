@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://github.com/erezrokah/aws-custom-resources/compare/auth0-custom-resource-v1.0.0...auth0-custom-resource-v1.0.1) (2022-02-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency axios to ^0.26.0 ([#403](https://github.com/erezrokah/aws-custom-resources/issues/403)) ([c672f66](https://github.com/erezrokah/aws-custom-resources/commit/c672f6680d4b301fed147cb6df622676803535d6))
+
 ## 1.0.0 (2022-01-23)
 
 
