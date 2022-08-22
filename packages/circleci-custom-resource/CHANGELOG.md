@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/erezrokah/aws-custom-resources/compare/circleci-custom-resource-v1.0.1...circleci-custom-resource-v1.0.2) (2022-08-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency axios to ^0.27.0 ([#445](https://github.com/erezrokah/aws-custom-resources/issues/445)) ([1d5da2e](https://github.com/erezrokah/aws-custom-resources/commit/1d5da2efcd29e5d27fda20ae76136655f5b80950))
+
 ### [1.0.1](https://github.com/erezrokah/aws-custom-resources/compare/circleci-custom-resource-v1.0.0...circleci-custom-resource-v1.0.1) (2022-02-14)
 
 
