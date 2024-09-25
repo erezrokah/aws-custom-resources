@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.1062.0",
-    "axios": "^0.28.0",
+    "axios": "^1.0.0",
     "cfn-lambda": "git://github.com/erezrokah/cfn-lambda.git#development"
   }
 }
